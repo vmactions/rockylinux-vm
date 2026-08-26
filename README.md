@@ -1,4 +1,4 @@
-# Run GitHub CI in RockyLinux 
+# Run GitHub CI in Rocky 
 
 ![Test](https://github.com/vmactions/rocky-vm/workflows/Test/badge.svg)
 
@@ -15,7 +15,7 @@ Powered by [AnyVM.org](https://anyvm.org)
 >
 > These VMs are now AI-ready. With the **[vmactions-ci skill](https://github.com/vmactions/vmactions-skill)**, an AI coding agent -- Claude Code, Codex, Copilot CLI, Gemini CLI, and others -- understands the full vmactions interface and writes the GitHub Actions CI for you, **automatically**.
 >
-> Just describe what you want in plain language, e.g. *"run my tests on RockyLinux"* or *"check that my project builds on RockyLinux aarch64"*, and the agent generates a correct, ready-to-commit `test.yml`. It will:
+> Just describe what you want in plain language, e.g. *"run my tests on Rocky"* or *"check that my project builds on Rocky aarch64"*, and the agent generates a correct, ready-to-commit `test.yml`. It will:
 >
 > - pick the right action, `release`, and `arch` for your target;
 > - install your toolchain and dependencies in the `prepare` step;
@@ -27,9 +27,9 @@ Powered by [AnyVM.org](https://anyvm.org)
 >
 > ### >> [Get the vmactions-ci skill](https://github.com/vmactions/vmactions-skill) <<
 
-Use this action to run your CI in RockyLinux.
+Use this action to run your CI in Rocky.
 
-The github workflow only supports Ubuntu, Windows and MacOS. But what if you need to use RockyLinux?
+The github workflow only supports Ubuntu, Windows and MacOS. But what if you need to use Rocky?
 
 
 All the supported releases are here:
@@ -76,13 +76,13 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A job to run test in RockyLinux
+    name: A job to run test in Rocky
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
     steps:
     - uses: actions/checkout@v7
-    - name: Test in RockyLinux
+    - name: Test in Rocky
       id: test
       uses: vmactions/rocky-vm@v0
       with:
@@ -230,7 +230,7 @@ The VM is using all the cpu cores of the host by default, you can use `cpu` opti
 
 ## 5. Select release
 
-It uses [the RockyLinux 10](conf/default.release.conf) by default, you can use `release` option to use another version of RockyLinux:
+It uses [the Rocky 10](conf/default.release.conf) by default, you can use `release` option to use another version of Rocky:
 
 ```yaml
 ...
@@ -423,7 +423,7 @@ See more: [debug on error](https://github.com/vmactions/.github/wiki/debug%E2%80
 
 # Under the hood
 
-We use Qemu to run the RockyLinux VM.
+We use Qemu to run the Rocky VM.
 
 
 
