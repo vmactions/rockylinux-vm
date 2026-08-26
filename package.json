@@ -1,7 +1,7 @@
 {
-  "name": "vmactions-Rocky",
-  "version": "",
-  "description": "GitHub actions for Rocky",
+  "name": "vmactions-RockyLinux",
+  "version": "1.0.0",
+  "description": "GitHub actions for RockyLinux",
   "type": "module",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,7 @@
   "keywords": [
     "GitHub",
     "Actions",
-    "Rocky"
+    "RockyLinux"
   ],
   "author": "",
   "license": "MIT",

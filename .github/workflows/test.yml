@@ -127,7 +127,7 @@ jobs:
 
 
     runs-on: ${{ matrix.runs }}
-    name: sshfs Rocky
+    name: sshfs RockyLinux
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
@@ -143,10 +143,10 @@ jobs:
 #        protocol: http
 #        port: 8000
 
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -300,7 +300,7 @@ jobs:
 
 
     runs-on: ${{ matrix.runs }}
-    name: nfs Rocky
+    name: nfs RockyLinux
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
@@ -308,10 +308,10 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -466,7 +466,7 @@ jobs:
 
 
     runs-on: ${{ matrix.runs }}
-    name: scp Rocky
+    name: scp RockyLinux
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
@@ -481,10 +481,10 @@ jobs:
 #      with:
 #        protocol: http
 #        port: 8000
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -595,7 +595,7 @@ jobs:
     # it with every step skipped.
     if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
     runs-on: ubuntu-24.04
-    name: tar Rocky
+    name: tar RockyLinux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
@@ -613,10 +613,10 @@ jobs:
           conf
           .github
         sparse-checkout-cone-mode: true
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         mem: 4096
         debug: true
@@ -667,7 +667,7 @@ jobs:
     # so on every other repo this job was a green do-nothing.
     if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
     runs-on: ubuntu-24.04
-    name: 9p Rocky
+    name: 9p RockyLinux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
@@ -680,10 +680,10 @@ jobs:
           conf
           .github
         sparse-checkout-cone-mode: true
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         mem: 4096
         debug: true
@@ -796,17 +796,17 @@ jobs:
 
 
     runs-on: ${{ matrix.runs }}
-    name: rsync default Rocky
+    name: rsync default RockyLinux
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -956,17 +956,17 @@ jobs:
 
 
     runs-on: ${{ matrix.runs }}
-    name: customshell Rocky
+    name: customshell RockyLinux
     env:
       MYTOKEN : ${{ secrets.MYTOKEN }}
       MYTOKEN2: "value2"
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1081,15 +1081,15 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-24.04
-    name: cache-after-prepare seed Rocky
+    name: cache-after-prepare seed RockyLinux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         mem: 4096
         debug: true
@@ -1141,17 +1141,17 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-24.04
-    name: cache-after-prepare hit Rocky
+    name: cache-after-prepare hit RockyLinux
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v7
     # The inputs (notably 'prepare' and the sync method) must be byte-identical
     # to the seed job above: the prepared-image cache key hashes them.
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         mem: 4096
         debug: true
@@ -1214,7 +1214,7 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-24.04
-    name: test default error Rocky
+    name: test default error RockyLinux
     steps:
     # Sparse, like testtar/test9p: this job runs with the repo's DEFAULT sync,
     # which on the agent guests is the tar or 9P channel, and it would
@@ -1226,10 +1226,10 @@ jobs:
           conf
           .github
         sparse-checkout-cone-mode: true
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       id: testerr
       continue-on-error: true
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         debug: true
         # A command that EXISTS and fails, rather than `false` or a made-up
@@ -1259,7 +1259,7 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-24.04
-    name: test default success Rocky
+    name: test default success RockyLinux
     steps:
     # Sparse, same reason as testerr above -- and this is the job the full
     # payload actually broke: the ReactOS push spent 12 minutes on those
@@ -1272,10 +1272,10 @@ jobs:
           conf
           .github
         sparse-checkout-cone-mode: true
-    - name: Test in Rocky
+    - name: Test in RockyLinux
       id: testpass
       continue-on-error: true
-      uses: vmactions/rocky-vm@4fc07f45f192069b309ceae18f5cc197b1d2e484
+      uses: vmactions/rocky-vm@9910d57cee98c6792f8deb91f3bbc96c1116fb29
       with:
         debug: true
         # No `true` and no double quotes: this body runs on every guest, and
