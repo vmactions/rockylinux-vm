@@ -146,7 +146,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -311,7 +311,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -484,7 +484,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -616,7 +616,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         mem: 4096
         debug: true
@@ -683,7 +683,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}', '9p') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         mem: 4096
         debug: true
@@ -806,7 +806,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -966,7 +966,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1089,7 +1089,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         mem: 4096
         debug: true
@@ -1151,7 +1151,7 @@ jobs:
     - name: Test in Rocky
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":["rsync","scp","nfs","tar"],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":["rsync","scp","nfs","tar"],"s390x":["rsync","scp","nfs","tar"],"i386":[],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         mem: 4096
         debug: true
@@ -1229,7 +1229,7 @@ jobs:
     - name: Test in Rocky
       id: testerr
       continue-on-error: true
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         debug: true
         # A command that EXISTS and fails, rather than `false` or a made-up
@@ -1275,7 +1275,7 @@ jobs:
     - name: Test in Rocky
       id: testpass
       continue-on-error: true
-      uses: vmactions/rocky-vm@16249ebc8b5ce0024618192afd73a4c64a32fa36
+      uses: vmactions/rocky-vm@0c04bd7ca78be5b8c1f978e25a83695e94787b3b
       with:
         debug: true
         # No `true` and no double quotes: this body runs on every guest, and
