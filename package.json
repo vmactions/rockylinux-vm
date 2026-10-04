@@ -1,6 +1,6 @@
 {
   "name": "vmactions-RockyLinux",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GitHub actions for RockyLinux",
   "type": "module",
   "main": "index.js",
